@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ad-vQ-Hfm">
+                    <rect key="frame" x="38" y="418" width="299" height="75"/>
+                    <color key="backgroundColor" red="1" green="0.96220731200244047" blue="0.038336499139221769" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="WKWebView WebViewJavascriptBridge点击      ">
+                        <color key="titleColor" red="1" green="0.32466851600000002" blue="0.29112189690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnClick2:" destination="-1" eventType="touchUpInside" id="JQc-Bz-S6l"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yqg-Hn-iga">
+                    <rect key="frame" x="38" y="100" width="299" height="307"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="307" id="Nx2-Fw-Ndh"/>
+                    </constraints>
+                    <string key="text">利用WKWebView                           1、实现js交互，js调用native,native调用js                   2、实现WebView中的图片浏览功能。点击可以放大。               3、实现图片长按进行保存功能。                                               4、实现了webview中的文字长按copy功能。</string>
+                    <color key="textColor" red="0.061640551163260504" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="21"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Yqg-Hn-iga" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YvO-6A-wYm"/>
+                <constraint firstItem="5ad-vQ-Hfm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="418" id="fxx-UK-4V6"/>
+                <constraint firstItem="Yqg-Hn-iga" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="38" id="gTN-7W-z15"/>
+                <constraint firstItem="Yqg-Hn-iga" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="iVg-mk-eFZ"/>
+                <constraint firstAttribute="trailing" secondItem="Yqg-Hn-iga" secondAttribute="trailing" constant="38" id="q9m-XM-sz9"/>
+                <constraint firstItem="5ad-vQ-Hfm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rr0-L2-lff"/>
+            </constraints>
+            <point key="canvasLocation" x="207.5" y="377.5"/>
+        </view>
+    </objects>
+</document>

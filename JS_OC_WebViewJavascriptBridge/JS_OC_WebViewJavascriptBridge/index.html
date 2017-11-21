@@ -1,0 +1,69 @@
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+            <title>404</title>
+                
+</head>
+
+<body>
+    
+    <div id="wrap">
+        <div>
+            <input type="button" value="js调用native" onclick="testone()" style="width:111px;height:80px">
+
+        </div>
+    </div>
+    
+
+    <hr />
+    
+    <div class="animate below"></div>
+    <div class="animate above"></div>
+    <div style="text-align:center;">
+    </div>
+    
+    
+    
+    
+    <section class="Powered-by-XIUMI V5" style="position:static;box-sizing:border-box;" powered-by="xiumi.us"><section style="text-align:center;margin:10px 0%;position:static;box-sizing:border-box;"><section style="display:inline-block;width:95%;vertical-align:top;box-shadow:0px 0px 8px;border:0px none #3e3e3e;border-radius:0px;padding:10px;box-sizing:border-box;background-color:#efefef;"><section class="Powered-by-XIUMI V5" style="position:static;box-sizing:border-box;" powered-by="xiumi.us"><section style="margin:5px 0% 0px;position:static;box-sizing:border-box;"><section style="display:inline-block;width:100%;vertical-align:top;box-shadow:0px 0px 8px inset;padding:10px;box-sizing:border-box;background-color:#ffffff;"><section class="Powered-by-XIUMI V5" style="box-sizing:border-box;" powered-by="xiumi.us"><section style="position:static;box-sizing:border-box;"><section style="max-width:100%;vertical-align:middle;display:inline-block;box-shadow:#000000 0px 0px 0px;width:100%;overflow:hidden !important;box-sizing:border-box;"><img src="http://nmpic.xxt.cn/bk/201711/96181510389664072.jpg" style="vertical-align:middle;max-width:100%;width:100%;box-sizing:border-box;float:none;" data-ratio="0.7399194" data-w="496" _width="100%" title="1.jpg"></section></section></section></section></section></section><section class="Powered-by-XIUMI V5" style="box-sizing:border-box;" powered-by="xiumi.us"><section style="margin:20px 0% 0px;position:static;box-sizing:border-box;"><section style="text-align:left;line-height:2;letter-spacing:2px;box-sizing:border-box;"><p style="padding:0px;box-sizing:border-box;margin-top:0px;margin-bottom:0px;">立冬后，虽然气候还没那么天寒地冻，但昼夜温差持续加大。</p><img src="http://nmpic.xxt.cn/bk/201711/96181510389664072.jpg" style="vertical-align:middle;max-width:100%;width:100%;box-sizing:border-box;float:none;" data-ratio="0.7399194" data-w="496" _width="100%" title="1.jpg"><p style="padding:0px;box-sizing:border-box;margin-top:0px;margin-bottom:0px;">孩子抵抗力弱，冬季到来，对每个家庭来说都是一个不小的“挑战”！孩子容易感染各种疾病，尤其是呼吸道疾病，而且一不小心就发展成肺炎。</p><p style="padding:0px;box-sizing:border-box;margin-top:0px;margin-bottom:0px;"><br style="box-sizing:border-box;"></p><p style="padding:0px;box-sizing:border-box;margin-top:0px;margin-bottom:0px;">该注意的务必时时牢记，愿宝贝们健康、温暖过冬。</p></section></section></section></section></section></section>
+    
+    
+    
+    
+    <script type="text/javascript">
+        
+        //iOS用于js交互必备代码：
+        function setupWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+            if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+            window.WVJBCallbacks = [callback];
+            var WVJBIframe = document.createElement('iframe');
+            WVJBIframe.style.display = 'none';
+            WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+            document.documentElement.appendChild(WVJBIframe);
+            setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+        }
+    
+    //native调用js
+      setupWebViewJavascriptBridge(function(bridge) {
+                                 bridge.registerHandler('testJSFunction', function(data, responseCallback) {
+                                                        alert('JS方法被调用:'+data);
+                                                        responseCallback('js执行过了');
+                                                        })
+                                 })
+    
+    
+    
+    //js调用native
+    function testone(){
+        WebViewJavascriptBridge.callHandler('testOCFunction', "{\"content\" : \"测试内容\",\"title\" : \"title\",\"image\" : \"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1985166313,1281281739&fm=27&gp=0.jpg\",\"url\" : \"http://tch.nmgxxt.cn/index.html\"}", function(response) {
+                                            alert('native被调用:' + response);
+                                            document.getElementById("returnValue").value = response;
+                                            });
+    }
+    </script>
+</body>
+</html>
+
