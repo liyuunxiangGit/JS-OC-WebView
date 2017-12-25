@@ -64,3 +64,33 @@ WKNavigationDelegate,WKUIDelegate
  _webViewBridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
  [_webViewBridge setWebViewDelegate:self.webView];
 ```
+* 3、最后注册js交互的方法，如demo所示：
+```
+[self registerNativeFunctions];
+```
+    * registerNativeFunctions方法的实现
+ ```
+#pragma mark - private method
+- (void)registerNativeFunctions
+{
+    
+    [self registTestOneFunction];
+}
+-(void)registTestOneFunction
+{
+    
+    [_webViewBridge registerHandler:@"testOCFunction" handler:^(id data, WVJBResponseCallback responseCallback) {
+        
+        // data 的类型与 JS中传的参数有关
+        NSDictionary *tempDic =  [self JSONStringToDictionaryWithData:data];;
+        // 在这里执行分享的操作
+        NSString *title = [tempDic objectForKey:@"title"];
+        NSString *content = [tempDic objectForKey:@"content"];
+        NSString *url = [tempDic objectForKey:@"url"];
+        
+        // 将分享的结果返回到JS中
+        NSString *result = [NSString stringWithFormat:@"js调用native成功成功:\ntitle=%@\n,content=%@\n,url=%@",title,content,url];
+        responseCallback(result);
+    }];
+}
+```
