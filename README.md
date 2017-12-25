@@ -4,10 +4,10 @@
 `WKWebView实现js交互`<br>
 
 ## 利用WKWebView  <br>  
-* 1、实现js交互，js调用native,native调用js  <br>  
-* 2、实现WebView中的图片浏览功能。点击可以放大。     <br>        
-* 3、实现图片长按进行保存功能。                       <br>              
-* 4、实现了webview中的文字长按copy功能。<br>  
+* 1、实现js交互，`js调用native`,`native调用js`  <br>  
+* 2、实现WebView中的`图片浏览`功能。点击可以`放大`。     <br>        
+* 3、实现图片`长按进行保存`功能。                       <br>              
+* 4、实现了webview中的文字`长按copy`功能。<br>  
 
 
 ![图片示意](https://github.com/liyuunxiangGit/JS-OC-WebView/blob/master/wkWebViewjs交互.gif)  
@@ -15,7 +15,7 @@
 
 ## JS-OC-WebView 代码实现详解  <br>
 #### 1、首先创建控制器WKMianWebViewController
-#### 2、然后控制器中继承如下类：
+#### 2、然后控制器中`继承`如下类：
 
 ```
 #import <WebKit/WebKit.h>
@@ -34,7 +34,7 @@ WKNavigationDelegate,WKUIDelegate
 @property WKWebViewJavascriptBridge *webViewBridge;
 ```
 #### 4、代码阶段：
-* 1、viewDidLoad中初始化webView,实现[self initWKWebView]方法。方法如下：
+* 1、viewDidLoad中`初始化`webView,实现[self initWKWebView]方法。方法如下：
 ```
 - (void)initWKWebView
 {
@@ -59,7 +59,7 @@ WKNavigationDelegate,WKUIDelegate
     [self.view addSubview:webView];
 }
 ```
-* 2、然后初始化webViewBridge并注册代理
+* 2、然后`初始化`webViewBridge并`注册代理`。
 ```
  _webViewBridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
  [_webViewBridge setWebViewDelegate:self.webView];
