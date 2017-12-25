@@ -14,3 +14,11 @@
 
 
 ## JS-OC-WebView 代码实现详解  <br>
+* 1、首先创建控制器WKMianWebViewController
+* 2、然后控制器中继承如下类：
+** ```
+#import <WebKit/WebKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "WKWebViewJavascriptBridge.h"
+#import "SDWebView.h"
+```
