@@ -24,7 +24,7 @@
 #import "SDWebView.h"
 ```
 * 3、准备工作：
-** 设置代理
+** 1、设置代理
 ```
 WKNavigationDelegate,WKUIDelegate
 ```
