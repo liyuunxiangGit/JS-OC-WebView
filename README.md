@@ -14,8 +14,8 @@
 
 
 ## JS-OC-WebView 代码实现详解  <br>
-* 1、首先创建控制器WKMianWebViewController
-* 2、然后控制器中继承如下类：
+#### 1、首先创建控制器WKMianWebViewController
+#### 2、然后控制器中继承如下类：
 
 ```
 #import <WebKit/WebKit.h>
@@ -23,18 +23,18 @@
 #import "WKWebViewJavascriptBridge.h"
 #import "SDWebView.h"
 ```
-* 3、准备工作：
-    * 设置代理
+#### 3、准备工作：
+* 1、设置代理
 ```
 WKNavigationDelegate,WKUIDelegate
 ```
-    * 在.h文件中
+* 2、在.h文件中
 ```
 @property (strong, nonatomic)   SDWebView  *webView;
 @property WKWebViewJavascriptBridge *webViewBridge;
 ```
-* 4、代码阶段：
-    * viewDidLoad中初始化webView,实现[self initWKWebView]方法。方法如下：
+#### 4、代码阶段：
+* 1、viewDidLoad中初始化webView,实现[self initWKWebView]方法。方法如下：
 ```
 - (void)initWKWebView
 {
@@ -59,7 +59,7 @@ WKNavigationDelegate,WKUIDelegate
     [self.view addSubview:webView];
 }
 ```
-    * 然后初始化webViewBridge并注册代理
+* 2、然后初始化webViewBridge并注册代理
 ```
  _webViewBridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
  [_webViewBridge setWebViewDelegate:self.webView];
