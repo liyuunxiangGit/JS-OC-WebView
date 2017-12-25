@@ -68,8 +68,8 @@ WKNavigationDelegate,WKUIDelegate
 ```
 [self registerNativeFunctions];
 ```
-    * registerNativeFunctions方法的实现
- ```
+* registerNativeFunctions方法的实现
+```
 #pragma mark - private method
 - (void)registerNativeFunctions
 {
