@@ -23,11 +23,44 @@
 #import "WKWebViewJavascriptBridge.h"
 #import "SDWebView.h"
 ```
-* 3、设置代理
+* 3、准备工作：
+** 设置代理
 ```
 WKNavigationDelegate,WKUIDelegate
 ```
-在.h文件中
+** 在.h文件中
 ```
 @property (strong, nonatomic)   SDWebView  *webView;
+@property WKWebViewJavascriptBridge *webViewBridge;
+```
+* 4、代码阶段：
+** viewDidLoad中初始化webView,实现[self initWKWebView]方法。方法如下：
+```
+- (void)initWKWebView
+{
+    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+    configuration.userContentController = [WKUserContentController new];
+    
+    WKPreferences *preferences = [WKPreferences new];
+    preferences.javaScriptCanOpenWindowsAutomatically = YES;
+    preferences.minimumFontSize = 30.0;
+    configuration.preferences = preferences;
+    
+    SDWebView *webView = [[SDWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+    self.webView = webView;
+    //如果是本地html，用下面方法：
+    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index.html" ofType:nil];
+    NSString *localHtml = [NSString stringWithContentsOfFile:urlStr encoding:NSUTF8StringEncoding error:nil];
+    NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
+    [webView loadHTMLString:localHtml baseURL:fileURL];
+    //如果是网址，用下面的方法：
+    //    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://tbk.xxtapp.cn/test/unitActivity/hybrid.html?s=2"]]];
+    webView.UIDelegate = self;
+    [self.view addSubview:webView];
+}
+```
+** 然后初始化webViewBridge并注册代理
+```
+ _webViewBridge = [WKWebViewJavascriptBridge bridgeForWebView:self.webView];
+ [_webViewBridge setWebViewDelegate:self.webView];
 ```
